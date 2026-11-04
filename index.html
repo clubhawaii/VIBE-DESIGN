@@ -190,6 +190,7 @@
   .actions{padding:16px 20px 8px;display:grid;gap:8px}
   .btn{font-weight:600;font-size:15px;padding:13px;border-radius:8px;border:1px solid var(--chip);cursor:pointer;background:#fff;color:var(--ink);transition:all .15s}
   .btn:hover{border-color:var(--brown);color:var(--brown)}
+  a.btn.mini-go{display:block;text-align:center;text-decoration:none;box-sizing:border-box}
   .btn.primary{background:var(--pink);border-color:var(--pink);color:#fff}
   .btn.primary:hover{background:#F2508F;border-color:#F2508F;color:#fff}
   .btn.small{font-size:14px;padding:11px}
@@ -908,10 +909,9 @@
           <div class="progress-text"><span>등록 준비 특강 <b id="courseCount">0</b></span></div>
           <div class="missing" id="missing2"></div>
           <button type="button" class="btn primary" id="dlXlsx">반 등록용 엑셀 내려받기</button>
-          <button type="button" class="btn" id="copyInfo">표로 복사하기</button>
+          <a class="btn mini-go" id="goMini" href="https://www.clubhawaii.co.kr/mini/dc1f781e-2cd9-4262-9b95-d28df7ce26b4" target="_blank" rel="noopener">미니앱 바로가기 ↗</a>
           <div class="hex-row" id="hexRow"><span class="hex-sw" id="hexSw"></span><span>미니앱 버튼 대표색 <b id="hexVal"></b></span><span class="mini-btn" id="copyHex" role="button" tabindex="0">복사</span></div>
-          <div class="mini-how">미니앱 반 등록 엑셀 양식 그대로 내려받아요. 미니앱 반 등록 화면에 이 파일을 올리면 돼요. 파일이 안 받아지면 「표로 복사하기」로 양식에 붙여넣으세요.</div>
-          <button type="button" class="link-btn" id="copyNoHead">엑셀 양식 3행에 붙일 때: 머리글 빼고 복사</button>
+          <div class="mini-how">엑셀을 내려받은 뒤 「미니앱 바로가기」에서 반 등록 화면에 이 파일을 올리면 돼요.</div>
         </div>
         <div class="block foot">
           <div class="fallback" id="fallback">
@@ -1789,8 +1789,6 @@
   }
   $('dlXlsx').addEventListener('click', downloadXlsx);
   $('pvFull').addEventListener('toggle', () => { if($('pvFull').open) $('promptFull').textContent = imagePrompt(); });
-  $('copyInfo').addEventListener('click', () => copyTable(true));
-  $('copyNoHead').addEventListener('click', () => copyTable(false));
   $('resetBtn').addEventListener('click', () => $('confirmBox').classList.add('show'));
   $('cancelReset').addEventListener('click', () => $('confirmBox').classList.remove('show'));
   $('doReset').addEventListener('click', () => {
